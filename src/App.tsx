@@ -1,4 +1,3 @@
-// src/App.tsx
 import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ActivityList from "./pages/ActivityList";
@@ -10,11 +9,13 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Navbar";
 import EventDetail from "./pages/EventDetail";
 import CancelActivityPage from "./pages/CancelActivity";
+import RegisterStudent from "./pages/RegisterStudent";
+import HistoryEvent from "./pages/HistoryEvent";
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
-      {<Navbar />}
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/activities" element={<ActivityList />} />
@@ -24,15 +25,12 @@ export default function App() {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/event" element={<EventDetail />} />
         <Route path="/cancel-activity" element={<CancelActivityPage />} />
+        <Route path="/register" element={<RegisterStudent />} />
+        <Route path="/history" element={<HistoryEvent />} />
 
-
-        {/* redirect เก่า → ใหม่ (ถ้ามี) */}
         <Route path="/home" element={<Navigate to="/" replace />} />
-
-        {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      {/* ถ้ามี Footer ก็วางไว้ตรงนี้ */}
     </div>
   );
 }
